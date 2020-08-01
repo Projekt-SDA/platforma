@@ -1,0 +1,15 @@
+{% extends 'baza.html' %}
+
+{% block content %}
+
+<h1>Stan sklepu:</h1>
+
+<h2>
+{% for obiekt in produkt_opis_widok %}
+       <li>
+    {{obiekt.nazwa}}
+       </li>
+{% endfor %}
+</h2>
+
+{% endblock %}
