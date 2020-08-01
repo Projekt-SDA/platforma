@@ -19,6 +19,12 @@ def nawigacja_serwis(request, *args, **kwargs):
 def dodaj_produkt_serwis(request, *args, **kwargs):
     return render(request, "serwis/dodaj1.html", {})
 
+def produkt_oczekujący(request, *args, **kwargs):
+    return render(request, 'serwis/ongoing.html', {})
+
+def serwis_zakończony(request, *args, **kwargs):
+    return render(request, 'serwis/done.html', {})
+
 
 
 

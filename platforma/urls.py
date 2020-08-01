@@ -33,6 +33,8 @@ urlpatterns = [
     path('sklep', sklep.views.produkt_opis_widok),
     path('serwis', serwis.views.produkt_opis_widok),
     path('dodaj1', serwis.views.dodaj_produkt_serwis),
+    path('ongoing', serwis.views.produkt_oczekujący),
+    path('done', serwis.views.serwis_zakończony),
     path('dodaj', sklep.views.dodaj_produkt_sklep),
     path('admin/', admin.site.urls),
 
