@@ -15,22 +15,27 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-
-from sklep import views
+import sklep.views
+import serwis.views
 from sklep.models import Product
+from serwis.models import Product_serv
 
 admin.site.register(Product)
+admin.site.register(Product_serv)
 # admin.site.register(Produkty)
 # admin.site.register(Dodawanie)
 # admin.site.register(Person)
 
 urlpatterns = [
 
-    path('', views.home_view),
-    path('dodaj/', views.produkt_utworz_widok),
-    path('sklep', views.produkt_opis_widok),
-    path('dodaj', views.dodaj_produkt_sklep),
+    path('', sklep.views.home_view),
+    # path('dodaj/', views.Dodaj_produkt_sklep),
+    path('sklep', sklep.views.produkt_opis_widok),
+    path('serwis', serwis.views.produkt_opis_widok),
+    path('dodaj1', serwis.views.dodaj_produkt_serwis),
+    path('dodaj', sklep.views.dodaj_produkt_sklep),
     path('admin/', admin.site.urls),
+
 
 
 

@@ -56,7 +56,7 @@ ROOT_URLCONF = 'platforma.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': ['C:/Users/Damian/Desktop/kurs/platforma/templates'],
+        'DIRS': ['C:/Users/Krzysztof/PycharmProjects/platforma-2/templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [

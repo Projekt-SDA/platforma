@@ -1,10 +1,33 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% extends 'baza.html' %}
 
-</body>
-</html>
+{% block content %}
+
+<h1>Stan serwisu:</h1>
+
+<table>
+   <tr>
+<thead>
+         <th>Nazwa Produku lub Usługi</th>  <th>/</th> <th>Kod</th> <th>/</th> <th>Cena</th>
+</thead>
+   </tr>
+</table>
+
+
+{% for od in obiekt %}
+
+<table>
+
+       <tbody>
+   </tr>
+   <tr>
+      <td>{{od.nazwa}} - </td>  <td>{{od.code}} - </td>  <td>{{od.cena}}</td>
+   </tr>
+    </tbody>
+</table>
+
+
+
+
+{% endfor %}
+
+{% endblock %}
