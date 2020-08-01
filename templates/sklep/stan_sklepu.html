@@ -1,0 +1,34 @@
+{% extends 'baza.html' %}
+
+{% block content %}
+
+<h1>Stan sklepu:</h1>
+
+<table>
+   <tr>
+<thead>
+         <th>Nazwa</th> <th>   Kod</th> <th>     Cena</th>
+</thead>
+   </tr>
+</table>
+
+
+{% for od in obiekt %}
+
+<table>
+
+       <tbody>
+   </tr>
+   <tr>
+      <td>{{od.nazwa}} - </td>  <td>{{od.code}} - </td>  <td>{{od.cena}}</td>
+   </tr>
+    </tbody>
+</table>
+
+
+
+
+{% endfor %}
+
+{% endblock %}
+
