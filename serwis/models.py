@@ -1,6 +1,6 @@
-from django.db import models
+from django.contrib import admin
 from django.db.models import (
-    CharField, DecimalField, TextField, Model, ForeignKey, DateTimeField, DO_NOTHING
+    CharField, DecimalField, TextField, Model, ForeignKey, DateTimeField, DO_NOTHING,
 )
 
 
@@ -19,8 +19,16 @@ class Client(Model):
     opis_problemu = TextField(default="Proszę o dodanie opisu)", null=False)
 
 
+
+
 class Ongoing(Model):
+
     client_id = ForeignKey(Client, on_delete=DO_NOTHING)
+    Worker_id = 1
+
+
+
+
 #
 #
 # class Produkty(Model):

@@ -20,6 +20,9 @@ def dodaj_produkt_serwis(request, *args, **kwargs):
     return render(request, "serwis/dodaj1.html", {})
 
 def produkt_oczekujący(request, *args, **kwargs):
+    return render(request, 'serwis/waiting.html', {})
+
+def produkt_w_realizacji(request, *args, **kwargs):
     return render(request, 'serwis/ongoing.html', {})
 
 def serwis_zakończony(request, *args, **kwargs):
