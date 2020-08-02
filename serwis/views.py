@@ -3,7 +3,7 @@
 from django.views.generic import FormView, ListView
 from django.shortcuts import render
 
-from .models import Product_serv
+from .models import Services
 
 def home_view(request, *args, **kwargs):
     return render(request, "index.html", {})
@@ -26,16 +26,14 @@ def serwis_zakończony(request, *args, **kwargs):
     return render(request, 'serwis/done.html', {})
 
 
-
-
-def products(request):
+def services(request):
     return render(
         request, template_name='stan_serwis.html',
-        context={'product':Product_serv.odjects.all()}
+        context={'product':Services.odjects.all()}
     )
 
 def produkt_opis_widok(request):
-    obj = Product_serv.objects.all()
+    obj = Services.objects.all()
     kontekst = {
          'obiekt': obj
 

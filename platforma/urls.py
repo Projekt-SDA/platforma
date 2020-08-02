@@ -18,10 +18,13 @@ from django.urls import path
 import sklep.views
 import serwis.views
 from sklep.models import Product
-from serwis.models import Product_serv
+from serwis.models import Services, Client, Ongoing
+
 
 admin.site.register(Product)
-admin.site.register(Product_serv)
+admin.site.register(Services)
+admin.site.register(Client)
+admin.site.register(Ongoing)
 # admin.site.register(Produkty)
 # admin.site.register(Dodawanie)
 # admin.site.register(Person)
