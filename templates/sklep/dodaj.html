@@ -1,10 +1,3 @@
-<!DOCTYPE html>
-<html lang="pl">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
 {% extends 'baza.html' %}
 
 
@@ -13,13 +6,22 @@
 {% block content %}
 
 <form method="post">
-    {% csrf_token %}
-    {% buttons %}
+{% csrf_token %}
+{{ form.as_p }}
 
-    <input type="submit" value="Save">
-{% endbuttons %}
+    <input type="submit" value="DODAJ PRODUKT DO SKLEPU">
+
+
 </form>
 {% endblock %}
 
-</body>
-</html>
+
+
+
+
+
+
+
+
+
+

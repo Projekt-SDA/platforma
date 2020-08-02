@@ -1,20 +1,28 @@
-from django.forms import Form
-from .models import Product
 from django import forms
 
-from .models import Product
-from django.db.models import (
- CharField, DecimalField, TextField
-)
+from .models import Product, Order
 
-
-class ProductForms(Form):
+class ProductForms(forms.ModelForm):
     class Meta:
         model = Product
-        field=[
+        fields = [
         "nazwa",
-        "kod",
-        "cena"
+        "cena",
+        # "ilosc",
+        "code",
+        "opis"
+
         ]
 
+
+class OrderForm(forms.ModelForm):
+    class Meta:
+        model = Order
+        fields = [
+        "nazwa",
+        "ilosc",
+        "code",
+        "opis"
+
+        ]
 

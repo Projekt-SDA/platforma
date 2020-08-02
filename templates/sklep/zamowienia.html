@@ -1,0 +1,39 @@
+{% extends 'baza.html' %}
+
+
+{% block content %}
+
+<h1>ZAMÓWIENIA:</h1>
+
+<table>
+   <tr>
+<thead>
+         <th>Nazwa</th> <th>   Kod</th> <th>     Cena</th>
+</thead>
+   </tr>
+</table>
+
+
+{% for od in obiekt %}
+<h1>
+<table>
+
+       <tbody>
+   </tr>
+   <tr>
+      <td>{{od.nazwa}} - </td>  <td>{{od.cena}} zł- </td>  <td>{{od.code}}</td> <td>{{od.ilosc}}</td><td>{{od.opis}}</td>
+   </tr>
+    </tbody>
+</table>
+</h1>
+{% endfor %}
+
+<form method="post">
+{% csrf_token %}
+{{form.as_p}}
+
+    <input type="submit" value="ZAPISZ ZAMÓWIENIE">
+
+
+</form>
+{% endblock %}
