@@ -1,9 +1,37 @@
-
-
-from django.views.generic import FormView, ListView
+from django.views.generic import FormView, ListView, CreateView, UpdateView
 from django.shortcuts import render
+from serwis.forms import ServiceForm
+from logging import getLogger
+from django.urls import reverse_lazy
+from serwis.models import ClientServices
+from serwis.models import Services
+from serwis.forms import ServiceForm
+LOGGER = getLogger()
 
-from .models import Services
+
+
+class Service_View(ListView):
+    template_name = 'stan_serwis.html'
+    model = Services
+
+class Service_services_create_view(CreateView):
+    template_name = 'serwis/dodaj1.html'
+    form_class = ServiceForm
+    success_url = reverse_lazy('waiting')
+
+class ServiceServicesUpdateView(UpdateView):
+    template_name = 'serwis/dodaj1.html'
+    model = ClientServices
+    form_class = ServiceForm
+    success_url = reverse_lazy('waiting')
+
+class ClientService_View(ListView):
+    template_name = 'waiting.html'
+    model = ClientServices
+
+
+
+
 
 def home_view(request, *args, **kwargs):
     return render(request, "index.html", {})
@@ -35,6 +63,7 @@ def services(request):
         context={'product':Services.odjects.all()}
     )
 
+
 def produkt_opis_widok(request):
     obj = Services.objects.all()
     kontekst = {
@@ -42,3 +71,12 @@ def produkt_opis_widok(request):
 
     }
     return render(request, "serwis/stan_serwis.html", kontekst)
+
+def service_product_waiting(request):
+    client_services = ClientServices.objects.all()
+    kontekst = {
+        'services' : client_services
+    }
+    return  render(request,'serwis/waiting.html',kontekst)
+
+

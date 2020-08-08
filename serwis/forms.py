@@ -1,15 +1,31 @@
-from django.forms import Form
-from .models import Product_serv
-from django.db.models import (
- CharField, DecimalField, TextField
+from django.forms import (CharField, ModelChoiceField, Form, ModelForm
 )
 
+from serwis.models import ClientServices, Services
 
-class ProductForms(Form):
-    nazwa = CharField(max_length=100)
-    code = CharField(max_length=13)
-    cena = DecimalField(max_digits=9, decimal_places=2)
-    opis = TextField(default="Proszę o dodanie opisu (opcjonalnie)", null=True)
+
+
+class ServiceForm(Form):
+    nazwa_usługi = ModelChoiceField(queryset=Services.objects)
+    Imię = CharField(max_length=100)
+    Nazwisko = CharField(max_length=100)
+    Numer_Kontaktowy = CharField(max_length=12)
+    E_mail = CharField(max_length=100)
+
+class ServiceForm(ModelForm):
+
+    class Meta:
+        model = ClientServices
+        fields = '__all__'
+
+
+
+
+
+
+
+
+
 
 
 
