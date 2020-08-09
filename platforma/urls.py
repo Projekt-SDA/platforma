@@ -20,8 +20,13 @@ import serwis.views
 from sklep.models import Product
 from serwis.models import Services, ClientServices
 from serwis.views import Service_View, ClientService_View
+from sklep import views
+from sklep.models import Product, Order
+
 
 admin.site.register(Product)
+admin.site.register(Order)
+
 admin.site.register(Services)
 admin.site.register(ClientServices)
 #.site.register(Ongoing)
@@ -30,6 +35,11 @@ admin.site.register(ClientServices)
 # admin.site.register(Person)
 
 urlpatterns = [
+
+    path('', views.home_view),
+
+    path('sklep', views.produkt_opis_widok),
+    path('dodaj', views.formularz_dodawania_produktu),
 
     path('', sklep.views.home_view),
     # path('dodaj/', views.Dodaj_produkt_sklep),
@@ -41,6 +51,10 @@ urlpatterns = [
     path('done', serwis.views.serwis_zakończony),
     path('dodaj', sklep.views.dodaj_produkt_sklep),
     path('admin/', admin.site.urls),
+    path('zamowienia', views.zamowienia_opis_widok),
+    path('glowna',views.home_view),
+    path('koszyk', views.koszyk)
+
     path('', Service_View.as_view(), name= 'index'),
 
 

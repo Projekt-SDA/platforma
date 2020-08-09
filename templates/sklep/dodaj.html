@@ -7,19 +7,28 @@
 <body>
 {% extends 'baza.html' %}
 
+
+
+
 {% block content %}
 
 <form method="post">
-    {% csrf_token %}
+{% csrf_token %}
+{{ form.as_p }}
+
+    <input type="submit" value="DODAJ PRODUKT DO SKLEPU">
 
 
-    <input type="submit" value="Save">
-    {% endbuttons %}
 </form>
 {% endblock %}
 
-</body>
-</html>
+
+
+
+
+
+
+
 
 
 
