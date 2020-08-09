@@ -1,0 +1,12 @@
+{% extends "baza.html" %}
+
+{% load createservices_extras %}
+
+{% block content %}
+    <ul>
+        {% for object in object_list %}
+        <li>
+            {% clientservice_format clientservice %}
+
+        </li>
+    </ul>

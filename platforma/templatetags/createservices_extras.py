@@ -5,7 +5,7 @@ from django.utils.safestring import SafeString
 register = Library()
 
 @register.simple_tag
-def clientservice_format(clientservice, short=False):
+def clientservice_format(clientservice):
     return f'{clientservice.service_name} ({clientservice.client_name})'
 
 @register.filter

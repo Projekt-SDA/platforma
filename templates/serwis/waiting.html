@@ -1,16 +1,15 @@
 {% extends 'baza.html' %}
 
+{% load createservices_extras %}
+
 {% block content %}
 
-<h1>Oczekujące zadania:</h1>
+    <h1>Oczekujące zadania:</h1>
 
-<table>
-   <tr>
-<thead>
-         <th>Nazwa Produktu lub Usługi</th>  <th>/</th> <th>Kod</th> <th>/</th> <th>ID Klienta</th>
-</thead>
-   </tr>
-</table>
-
+    <ul>
+    {% for clientservice in object_list %}
+    <li>{%  clientservice_format object %}</li>
+    {% endfor %}
+    </ul>
 
 {% endblock %}
