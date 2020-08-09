@@ -1,11 +1,11 @@
-from django.views.generic import FormView, ListView, CreateView, UpdateView
+from django.views.generic import  ListView, CreateView, UpdateView
 from django.shortcuts import render
-from serwis.forms import ServiceForm
 from logging import getLogger
 from django.urls import reverse_lazy
 from serwis.models import ClientServices
 from serwis.models import Services
-from serwis.forms import ServiceForm
+from serwis.forms import ServiceForm,ServicessForm
+
 LOGGER = getLogger()
 
 
@@ -28,6 +28,11 @@ class ServiceServicesUpdateView(UpdateView):
 class ClientService_View(ListView):
     template_name = 'waiting.html'
     model = ClientServices
+
+class ServiceCreateView(CreateView):
+    template_name = 'serwis/createservice.html'
+    form_class = ServicessForm
+    success_url = reverse_lazy('serwis')
 
 
 

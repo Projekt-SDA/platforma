@@ -17,7 +17,6 @@ from django.contrib import admin
 from django.urls import path
 import sklep.views
 import serwis.views
-from sklep.models import Product
 from serwis.models import Services, ClientServices
 from serwis.views import Service_View, ClientService_View
 from sklep import views
@@ -39,22 +38,20 @@ urlpatterns = [
     path('', views.home_view),
 
     path('sklep', views.produkt_opis_widok),
-    path('dodaj', views.formularz_dodawania_produktu),
+
 
     path('', sklep.views.home_view),
-    # path('dodaj/', views.Dodaj_produkt_sklep),
-    path('sklep', sklep.views.produkt_opis_widok),
-    path('serwis', serwis.views.produkt_opis_widok),
+    path('serwis', serwis.views.produkt_opis_widok, name= 'serwis'),
     path('dodaj1', serwis.views.Service_services_create_view.as_view()),
-    path('waiting', ClientService_View.as_view(), name = 'waiting'),
+    path('waiting', serwis.views.service_product_waiting, name = 'waiting'),
     path('ongoing', serwis.views.produkt_w_realizacji),
     path('done', serwis.views.serwis_zakończony),
     path('dodaj', sklep.views.dodaj_produkt_sklep),
     path('admin/', admin.site.urls),
     path('zamowienia', views.zamowienia_opis_widok),
     path('glowna',views.home_view),
-    path('koszyk', views.koszyk)
-
+    path('koszyk', views.koszyk),
+    path('createservice', serwis.views.ServiceCreateView.as_view()),
     path('', Service_View.as_view(), name= 'index'),
 
 

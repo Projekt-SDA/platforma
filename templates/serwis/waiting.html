@@ -1,15 +1,33 @@
 {% extends 'baza.html' %}
 
-{% load createservices_extras %}
-
 {% block content %}
 
-    <h1>Oczekujące zadania:</h1>
+<h1>Zamówienia oczekujace:</h1>
 
-    <ul>
-    {% for clientservice in object_list %}
-    <li>{%  clientservice_format object %}</li>
-    {% endfor %}
-    </ul>
+<table>
+   <tr>
+<thead>
+         <th>Nazwa zadania</th>  <th>/</th> <th>Imię</th> <th>/</th> <th>Nazwisko Klienta</th>
+</thead>
+   </tr>
+</table>
+
+
+{% for od in services %}
+
+<table>
+
+       <tbody>
+   </tr>
+   <tr>
+      <td>{{od.service_name}} | </td>  <td>{{od.client_name}} | </td>  <td>{{od.client_surname}}</td>
+   </tr>
+    </tbody>
+</table>
+
+
+
+
+{% endfor %}
 
 {% endblock %}
