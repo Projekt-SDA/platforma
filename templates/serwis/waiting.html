@@ -1,0 +1,33 @@
+{% extends 'baza.html' %}
+
+{% block content %}
+
+<h1>Zamówienia oczekujace:</h1>
+
+<table>
+   <tr>
+<thead>
+         <th>Nazwa zadania</th>  <th>/</th> <th>Imię</th> <th>/</th> <th>Nazwisko Klienta</th> <th>/</th> <th>Status</th>
+</thead>
+   </tr>
+</table>
+
+
+{% for od in services %}
+
+<table>
+
+       <tbody>
+   </tr>
+   <tr>
+      <td>{{od.service_name}} | </td>  <td>{{od.client_name}} | </td>  <td>{{od.client_surname}} | </td> <td>{{od.status}}</td>
+   </tr>
+    </tbody>
+</table>
+
+
+
+
+{% endfor %}
+
+{% endblock %}
