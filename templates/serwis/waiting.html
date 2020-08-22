@@ -1,26 +1,28 @@
 {% extends 'baza.html' %}
 
 {% block content %}
+{% load bootstrap4 %}
 
 <h1>Zamówienia oczekujace:</h1>
-
-<table>
-   <tr>
-<thead>
-         <th>Nazwa zadania</th>  <th>/</th> <th>Imię</th> <th>/</th> <th>Nazwisko Klienta</th> <th>/</th> <th>Status</th>
-</thead>
-   </tr>
-</table>
 
 
 {% for od in services %}
 
-<table>
+<table class="table table-responsive">
 
+    <thead>
+        </tr>
+
+        <th>Nazwa zadania</th>
+        <th>Imię</th>
+        <th>Nazwisko</th>
+        <th>Status</th>
+    </thead>
+        </tr>
        <tbody>
-   </tr>
+
    <tr>
-      <td>{{od.service_name}} | </td>  <td>{{od.client_name}} | </td>  <td>{{od.client_surname}} | </td> <td>{{od.status}}</td>
+      <td>{{od.service_name}}</td>  <td>{{od.client_name}}</td>  <td>{{od.client_surname}}</td> <td>{{od.status}}</td>
    </tr>
     </tbody>
 </table>

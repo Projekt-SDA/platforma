@@ -11,9 +11,13 @@
     {% block scripts %}{% bootstrap_javascript jquery='slim' %}{% endblock %}
 
 </head>
+
 <body>
+<nav class="navbar navbar-default">
+
 {% include 'sklep/pasek_nawigacyjny_sklep.html' %}
 {% include 'serwis/nawigacja_serwis.html' %}
+</nav>
 {% block content %}
 
 
