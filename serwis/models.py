@@ -12,6 +12,10 @@ class Services(Model):
     def __str__(self):
         return self.nazwa
 
+class Status(Model):
+    status = CharField(max_length=30)
+    def __str__(self):
+        return self.status
 
 
 class ClientServices(Model):
@@ -20,6 +24,7 @@ class ClientServices(Model):
     client_surname = CharField(max_length=100)
     client_contact_number = CharField(max_length=12)
     client_email = CharField(max_length=100)
+    status = ForeignKey(Status, on_delete=DO_NOTHING)
     def __str__(self):
         return self.client_name
 

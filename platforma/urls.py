@@ -17,7 +17,7 @@ from django.contrib import admin
 from django.urls import path
 import sklep.views
 import serwis.views
-from serwis.models import Services, ClientServices
+from serwis.models import Services, ClientServices, Status
 from serwis.views import Service_View, ClientService_View
 from sklep import views
 from sklep.models import Product, Order
@@ -28,6 +28,7 @@ admin.site.register(Order)
 
 admin.site.register(Services)
 admin.site.register(ClientServices)
+admin.site.register(Status)
 #.site.register(Ongoing)
 # admin.site.register(Produkty)
 # admin.site.register(Dodawanie)
