@@ -1,0 +1,35 @@
+{% extends 'baza.html' %}
+{% load bootstrap4 %}
+
+
+
+{% block content %}
+<h1>ZAMÓWIENIA:</h1>
+
+    {% for od in obiekt %}
+
+    <table>
+
+        <tbody>
+
+        <tr>
+            <td>{{od.id}}.{{od.nazwa}} - {{od.cena}} zł-{{od.code}}{{od.ilosc}}{{od.opis}}</td><a href="{% url 'edit_order' pk=od.id %}">
+
+        </tr>
+
+
+        </tbody>
+    </table>
+
+{% endfor %}
+<form method="post">
+    {% csrf_token %}
+    {% bootstrap_form form %}
+    {% buttons %}
+
+    <center><input type="submit" value="DODAJ ZAMÓWIENIE" class="btn btn-primary"></center>
+    {% endbuttons %}
+
+</form>
+
+{% endblock %}

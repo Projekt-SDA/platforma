@@ -6,21 +6,33 @@
 </head>
 <body>
 {% extends 'baza.html' %}
-
-
-
-
+{% load bootstrap4 %}
 {% block content %}
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <title>Paltforma do zarządzania sklepem</title>
+</head>
 
-<form method="post">
-{% csrf_token %}
-{{ form.as_p }}
-
-    <input type="submit" value="DODAJ PRODUKT DO SKLEPU">
+<center>
+<div class="container">
+    <div class="content-section col-sm-6">
 
 
-</form>
+
+    <form method="post">
+    {% csrf_token %}
+
+    {% bootstrap_form form %}
+    {% buttons %}
+
+    <center><input type="submit" value="DODAJ DO SKLEPU" class="btn btn-primary"></center>
+    {% endbuttons %}
+    </form>
+    </div>
+</div></center>
 {% endblock %}
+
 
 
 

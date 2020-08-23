@@ -1,34 +1,37 @@
 {% extends 'baza.html' %}
-
+{% load bootstrap4 %}
 {% block content %}
 
-<h1>Stan sklepu:</h1>
-
-<table>
-   <tr>
-<thead>
-         <th>Nazwa</th> <th>   Kod</th> <th>     Cena</th>
-</thead>
-   </tr>
-</table>
 
 
-{% for od in obiekt %}
-<h1>
-<table>
+<center>
+<h1>Stan sklepu:<br><br><br>
+<form method="GET" action="/sklep">
+    <input type="text" name="q" placeholder="Znajdź produkt">
+</form>
+</h1>
+</center>
+<table class="table table-striped">
+    <thead>
+    <tr>
+        <th>NAZWA</th>
+        <th>ILOŚĆ</th>
+        <th>CENA</th>
+        <th>KOD</th>
+        <th>OPCJE</th>
 
-       <tbody>
-   </tr>
-   <tr>
-      <td>{{od.nazwa}} - </td>  <td>{{od.cena}} zł- </td>  <td>{{od.code}}</td>
-   </tr>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>{% for od in obiekt %}
+        <td>{{od.nazwa}}</td>
+        <td>{{od.ilosc}}</td>
+        <td>{{od.cena}}</td>
+        <td>{{od.code}}</td>
+        <td><a href="{% url 'edit' pk=od.id %}" class="btn btn-info btn-xs">EDYTUJ</a></td><br>
+    </tr>{% endfor %}
+
     </tbody>
 </table>
-</h1>
-
-
-
-{% endfor %}
 
 {% endblock %}
-
