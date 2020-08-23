@@ -1,9 +1,41 @@
 {% extends 'baza.html' %}
-
+{% load bootstrap4 %}
 
 
 {% block content %}
 
 <h1>LISTA ZAKUPÓW:</h1>
+
+
+<h1>DO ZAPŁATY: </h1>
+
+{{suma}}
+
+<a href="{% url 'drop_db' %}" class="btn btn-danger btn-lg">USUŃ KOSZYK</a><br><br><br>
+
+
+
+<table class="table table-striped">
+    <thead>
+    <tr>
+        <th>NAZWA</th>
+        <th>CENA</th>
+        <th>ILOŚĆ</th>
+        <th>SUMA</th>
+        <th>OPCJE</th>
+
+    </tr>
+    </thead>
+    <tbody>
+    <tr>{% for item in obj %}
+        <td>{{item.product.nazwa}} </td>
+        <td>{{item.product.cena}} zł</td>
+        <td>{{item.ilosc}} </td>
+        <td>{{item.cena}} zł</td>
+        <td><a href="{% url 'del_cart' pk=item.id %}" class="btn btn-danger btn-xs" > USUŃ </a></td><br>
+    </tr>{% endfor %}
+
+    </tbody>
+</table>
 
 {% endblock %}

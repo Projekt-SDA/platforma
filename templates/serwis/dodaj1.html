@@ -1,0 +1,57 @@
+{% extends "baza.html" %}
+
+{% load bootstrap4 %}
+
+{% block content %}
+  <form method="post">
+    {% csrf_token %}
+    {{ form.non_field_errors }}
+    <div class="form-group"  >
+      {{ form.service_name.errors }}
+      <label for="{{ form.service_name.id_for_label }}">Nazwa_Usługi:</label>
+      {{ form.service_name }}
+    </div>
+    <div class="row">
+      <div class="col">
+        <div class="form-group">
+          {{ form.client_name.errors }}
+          <label for="{{ form.client_name.id_for_label }}">Imię:</label>
+          {{ form.client_name }}
+        </div>
+      </div>
+      <div class="col">
+        <div class="form-group">
+          {{ form.client_surname.errors }}
+          <label for="{{ form.client_surname.id_for_label }}">Nazwisko:</label>
+          {{ form.client_surname }}
+        </div>
+      </div>
+      <div class="col">
+        <div class="form-group">
+          {{ form.client_contact_number.errors }}
+          <label for="{{ form.client_contact_number.id_for_label }}">Numer kontaktowy:</label>
+          {{ form.client_contact_number }}
+        </div>
+      </div>
+        </div>
+      <div class="col">
+        <div class="form-group">
+          {{ form.client_email.errors }}
+          <label for="{{ form.client_email.id_for_label }}">e-mail:</label>
+          {{ form.client_email }}
+        </div>
+      </div>
+      <div class="col">
+        <div class="form-group">
+          {{ form.status.errors }}
+          <label for="{{ form.status.id_for_label }}">status:</label>
+          {{ form.status }}
+        </div>
+      </div>
+    </div>
+
+    {% buttons %}
+      <input type="submit" value="Zapisz" class="btn btn-primary">
+    {% endbuttons %}
+  </form>
+{% endblock %}

@@ -1,39 +1,93 @@
 {% extends 'baza.html' %}
-
+{% load bootstrap4 %}
 
 {% block content %}
-
 <h1>ZAMÓWIENIA:</h1>
+<a href="../addorder" class="btn btn-primary"> DODAJ ZAMÓWIENIE</a><br><br><br>
 
-<table>
-   <tr>
-<thead>
-         <th>Nazwa</th> <th>   Kod</th> <th>     Cena</th>
-</thead>
-   </tr>
+<table class="table table-striped">
+    <thead>
+    <tr>
+        <th>NAZWA</th>
+
+        <th>ILOŚĆ</th>
+        <th>OPIS</th>
+        <th>OPCJE</th>
+
+    </tr>
+    </thead>
+    <tbody>
+    <tr>{% for od in obiekt %}
+        <td>{{od.nazwa}}</td>
+
+        <td>{{od.ilosc}}</td>
+        <td>{{od.opis}}</td>
+        <td>
+            <a href="{% url 'del_order' pk=od.id %}" class="btn btn-danger"> USUŃ </a>
+            <a href="{% url 'edit_order' pk=od.id %}" class="btn btn-info btn-xs">EDYTUJ</a>
+        </td><br>
+    </tr>{% endfor %}
+
+<!--    </tbody>-->
+
+<!--        </td>-->
+
+<!--        <td>-->
+<!--            <form method="post">-->
+<!--                {% csrf_token %}-->
+
+<!--                {% bootstrap_form form %}-->
+<!--                {% buttons %}-->
+<!--                <center><input type="submit" value="DODAJ ZAMÓWIENIE" class="btn btn-primary"></center>-->
+<!--                {% endbuttons %}-->
+<!--        </td>-->
+<!--    </tr>-->
 </table>
 
 
-{% for od in obiekt %}
-<h1>
-<table>
 
-       <tbody>
-   </tr>
-   <tr>
-      <td>{{od.nazwa}} - </td>  <td>{{od.cena}} zł- </td>  <td>{{od.code}}</td> <td>{{od.ilosc}}</td><td>{{od.opis}}</td>
-   </tr>
-    </tbody>
-</table>
-</h1>
-{% endfor %}
+<!--    <div class="col-sm-6 bg-success" style="background-color:lavender;">-->
 
-<form method="post">
-{% csrf_token %}
-{{form.as_p}}
-
-    <input type="submit" value="ZAPISZ ZAMÓWIENIE">
+<!--        <h1>{% for od in obiekt %}-->
+<!--            <tr>{{od.nazwa}} - {{od.cena}} {{od.ilosc}}{{od.opis}}</tr><a href="{% url 'del_order' pk=od.id %}"> USUŃ </a><a href="{% url 'edit_order' pk=od.id %}">  Edytuj</a><br>-->
+<!--            {% endfor %}</h1>-->
 
 
-</form>
-{% endblock %}
+<!--    </div>-->
+
+<!--    <div class="col-sm-6 " style="background-color:lavender;">-->
+
+<!--        <form method="post">-->
+<!--            {% csrf_token %}-->
+
+<!--            {% bootstrap_form form %}-->
+<!--            {% buttons %}-->
+<!--            <center><input type="submit" value="DODAJ ZAMÓWIENIE" class="btn btn-primary"></center>-->
+<!--            {% endbuttons %}-->
+
+<!--    </div>-->
+    {% endblock %}
+
+
+<!--<table class="table table-striped">-->
+<!--    <thead>-->
+<!--    <tr>-->
+<!--        <th>NAZWA</th>-->
+<!--        <th>CENA</th>-->
+<!--        <th>ILOŚĆ</th>-->
+<!--        <th>OPIS</th>-->
+<!--        <th>OPCJE</th>-->
+
+<!--    </tr>-->
+<!--    </thead>-->
+<!--    <tbody>-->
+<!--    <tr>{% for od in obiekt %}-->
+<!--        <td>{{od.nazwa}}</td>-->
+<!--        <td>{{od.cena}}</td>-->
+<!--        <td>{{od.ilosc}}</td>-->
+<!--        <td>{{od.opis}}</td>-->
+<!--        <td><a href="{% url 'del_order' pk=od.id %}"> USUŃ </a><a href="{% url 'edit_order' pk=od.id %}">  Edytuj</a></td><br>-->
+<!--    </tr>{% endfor %}-->
+
+<!--    </tbody>-->
+<!--</table>-->
